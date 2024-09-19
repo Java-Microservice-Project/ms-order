@@ -1,1 +1,27 @@
-spring.application.name=ms-order
+# Spring Boot configuration
+spring:
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ms_orders
+    username: postgres
+    password: admin
+  # JPA properties
+  jpa:
+    show_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+  # Liquibase
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.yaml
+
+# Port
+server:
+  port: 8081
+
+# Swagger
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
